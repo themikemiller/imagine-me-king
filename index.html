@@ -303,18 +303,8 @@
   .merch-cta{font-family:'IBM Plex Mono',monospace;font-size:.65rem;font-weight:500;letter-spacing:.15em;text-transform:uppercase;padding:.85rem 2rem;background:linear-gradient(135deg,var(--purple),var(--pink));color:#fff;text-decoration:none;border-radius:8px;display:inline-flex;align-items:center;gap:.6rem;transition:all .35s;min-height:44px}
   .merch-cta:hover{transform:translateY(-2px);box-shadow:0 8px 40px rgba(155,93,229,.35)}
   .merch-cta svg{width:15px;height:15px;fill:currentColor}
-  .merch-visual{position:relative;z-index:1;width:220px;height:220px;border-radius:12px;background:rgba(255,255,255,.02);border:1px solid var(--border);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.75rem;flex-shrink:0}
-  .merch-icon-big{width:48px;height:48px;fill:var(--text);opacity:.2}
-  .merch-coming{font-family:'IBM Plex Mono',monospace;font-size:.55rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+  .merch-visual{position:relative;z-index:1;width:220px;height:220px;border-radius:12px;overflow:hidden;border:1px solid var(--border);flex-shrink:0}
 
-  /* Merch product grid (populated from Printful API) */
-  .merch-products{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:1rem;margin-top:1.5rem}
-  .merch-product{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:10px;overflow:hidden;transition:all .4s;cursor:pointer;text-decoration:none;color:var(--text);display:block}
-  .merch-product:hover{border-color:rgba(155,93,229,.35);transform:translateY(-3px);box-shadow:0 8px 30px rgba(155,93,229,.12)}
-  .merch-product-img{width:100%;aspect-ratio:1;object-fit:cover;background:var(--card);display:block}
-  .merch-product-info{padding:.75rem}
-  .merch-product-name{font-family:'Space Grotesk',sans-serif;font-size:.8rem;font-weight:500;color:var(--text);margin-bottom:.25rem;line-height:1.3}
-  .merch-product-price{font-family:'IBM Plex Mono',monospace;font-size:.7rem;color:var(--pink);letter-spacing:.05em}
 
   /* ===== ANIMATIONS ===== */
   @keyframes heroReveal{0%{opacity:0;transform:translateY(30px) scale(.97);filter:blur(6px)}100%{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}}
@@ -364,11 +354,8 @@
     .hero-logo br{display:none}
     .hero-sub{font-size:.7rem;letter-spacing:.2em;margin-bottom:1.25rem;opacity:1;animation:none;text-shadow:none}
 
-    /* Socials: icon circles on mobile (Linktree style) */
-    .hero-socials{gap:1rem;margin-bottom:1.5rem;opacity:1;animation:none}
-    .social-btn{width:40px;height:40px;padding:0;justify-content:center;border-radius:50%;background:rgba(255,255,255,.04);border:1px solid var(--border);font-size:0;gap:0;min-height:40px}
-    .social-btn svg{width:17px;height:17px;opacity:.7}
-    .social-btn .social-label{display:none}
+    /* Socials: HIDE hero circles on mobile (replaced by link buttons below) */
+    .hero-socials{display:none}
 
     /* Book CTA: rounded pill with mail icon */
     .hero-cta{opacity:1;animation:none;margin-bottom:.25rem}
@@ -470,7 +457,7 @@
       <li><a href="#listen">Listen</a></li>
       <li><a href="#shows">Shows</a></li>
     </ul>
-    <a href="#" class="nav-merch" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#ico-bag"/></svg> Merch</a>
+    <a href="https://imaginemeking.printful.me/" class="nav-merch" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#ico-bag"/></svg> Merch</a>
     <a href="#contact" class="nav-book">Book Us</a>
   </div>
   <button class="hamburger" id="hamburgerBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
@@ -528,6 +515,7 @@
       <!-- Populated by JS from shows.json on mobile -->
     </div>
   </div>
+  <a href="https://imaginemeking.printful.me/" class="link-btn" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#ico-bag"/></svg><span class="link-label">Merch Store</span></a>
   <a href="https://open.spotify.com/artist/6i5AmmEIlUT1NsmGYpHCz1" class="link-btn" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#ico-spotify"/></svg><span class="link-label">Spotify</span></a>
   <a href="https://www.youtube.com/@Imaginemeking" class="link-btn" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#ico-youtube"/></svg><span class="link-label">YouTube</span></a>
   <a href="https://instagram.com/imaginemeking" class="link-btn" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#ico-instagram"/></svg><span class="link-label">Instagram</span></a>
@@ -591,18 +579,14 @@
 <section class="merch-section" id="merch" aria-label="Merchandise">
   <div class="merch-inner">
     <div class="reveal"><div class="section-tag">Merch</div><h2 class="section-heading">IMK Merch</h2></div>
-    <div class="merch-products reveal" id="merchGrid">
-      <!-- Populated by JS from Printful API -->
-    </div>
-    <div class="merch-card reveal" id="merchFallback">
+    <div class="merch-card reveal">
       <div class="merch-text">
-        <div class="merch-tagline">Shop Coming Soon</div>
-        <p class="merch-desc">Tees, hoodies, and more on the way.</p>
-        <a href="#" class="merch-cta" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#ico-bag"/></svg> Shop Now</a>
+        <div class="merch-tagline">Official Merch</div>
+        <p class="merch-desc">Tees, hoodies, and more. Shop the official Imagine Me King store.</p>
+        <a href="https://imaginemeking.printful.me/" class="merch-cta" target="_blank" rel="noopener noreferrer"><svg aria-hidden="true"><use href="#ico-bag"/></svg> Shop Now</a>
       </div>
       <div class="merch-visual" aria-hidden="true">
-        <svg class="merch-icon-big" viewBox="0 0 24 24"><use href="#ico-bag"/></svg>
-        <span class="merch-coming">Coming Soon</span>
+        <img src="https://cdn.printful.me/t/quick-stores/products/w168/17809691-71-69a8fe42b38b2__360" alt="Imagine Me King t-shirt" style="width:100%;height:100%;object-fit:cover;border-radius:12px" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><div style="display:none;width:100%;height:100%;flex-direction:column;align-items:center;justify-content:center;gap:.75rem"><svg style="width:48px;height:48px;fill:var(--text);opacity:.2" viewBox="0 0 24 24"><use href="#ico-bag"/></svg></div>
       </div>
     </div>
   </div>
@@ -765,33 +749,6 @@
     });
   }
 
-  // ===== Load merch from Printful API =====
-  var merchGrid=document.getElementById('merchGrid');
-  var merchFallback=document.getElementById('merchFallback');
-
-  fetch('/.netlify/functions/printful-products')
-    .then(function(r){return r.json()})
-    .then(function(products){
-      if(!products||!products.length||products.error){return}
-      // Hide fallback, show product grid
-      if(merchFallback)merchFallback.style.display='none';
-      if(!merchGrid)return;
-      var html='';
-      products.forEach(function(p){
-        var price=p.price?'$'+p.price:'';
-        html+='<a href="#" class="merch-product" target="_blank" rel="noopener noreferrer">'
-          +'<img class="merch-product-img" src="'+p.image+'" alt="'+p.name+'" loading="lazy">'
-          +'<div class="merch-product-info">'
-          +'<div class="merch-product-name">'+p.name+'</div>'
-          +(price?'<div class="merch-product-price">'+price+'</div>':'')
-          +'</div></a>';
-      });
-      merchGrid.innerHTML=html;
-    })
-    .catch(function(){
-      // API not available — fallback card stays visible
-      if(merchGrid)merchGrid.style.display='none';
-    });
 
   // ===== Sanitize external links =====
   document.querySelectorAll('a[target="_blank"]').forEach(function(a){
